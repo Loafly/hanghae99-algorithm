@@ -1,9 +1,3 @@
-def is_empty(list):
-    if not list:
-        return True
-    else:
-        return False
-
 length = int(input())
 cur_value = 1
 
@@ -15,8 +9,8 @@ for i in range(length):
     queue.append(input())
 
 #queue에 값이 없을때 까지
-while not is_empty(queue):
-    if is_empty(stack):
+while queue:
+    if not stack:
         stack.append(cur_value)
         result.append('+')
         cur_value += 1

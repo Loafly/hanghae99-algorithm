@@ -14,8 +14,8 @@ while target_queue:
     target_index = queue.index(target_queue[0])
 
     if target_index == cur_index:
-        queue.pop(0)
-        target_queue.pop(0)        
+        queue.pop(cur_index)
+        target_queue.pop(0)   
     else:
         if cur_index < target_index:
             rigth_move = target_index - cur_index
