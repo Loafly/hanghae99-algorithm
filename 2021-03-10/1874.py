@@ -25,7 +25,6 @@ while not is_empty(queue):
             stack.append(cur_value)
             result.append('+')
             cur_value += 1
-        # elif stack[-1] == queue[0]:
         else:
             stack.pop()
             queue.pop(0)

@@ -1,4 +1,7 @@
 #변수를 입력받는 방법
+
+char_list = [['[', ']'], ['(', ')']]
+
 while True:
     text = input()
     stack = []
@@ -6,9 +9,21 @@ while True:
         break
     
     for char in text:
-        if char == '(' or char == ')' or char == '[' or char == ']':
+        if char == '(' or char == '[':
             stack.append(char)
-    
-    for i in range(len(stack) // 2) :
-        stack()
-    print(stack)
+        elif char == ')' or char == ']':
+            if len(stack) == 0:
+                print('no')
+                break
+            if char == ')' and stack[-1] == '(' or char == ']' and stack[-1] == '[':
+                stack.pop()
+            else:
+                print('no')
+                break
+    else:
+        if len(stack) == 0:
+            print('yes')
+        else:
+            print('no')
+                
+
