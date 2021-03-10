@@ -10,6 +10,7 @@ for i in range(length):
 
 #queue에 값이 없을때 까지
 while queue:
+    #stack에 값이 없다면 append
     if not stack:
         stack.append(cur_value)
         result.append('+')

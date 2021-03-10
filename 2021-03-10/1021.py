@@ -17,6 +17,7 @@ while target_queue:
         queue.pop(cur_index)
         target_queue.pop(0)   
     else:
+        #cur_index의 값에 따라 왼쪽/오른쪽으로 가는방법이 바뀜
         if cur_index < target_index:
             rigth_move = target_index - cur_index
             left_move = -(len(queue) - (target_index - cur_index))
