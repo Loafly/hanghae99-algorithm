@@ -10,52 +10,34 @@ for i in range(col):
    tomato_store.append(tomato)
 
 
-def check(check_list, i, j, arrow):
-    if arrow == 'right':
-        if j + 1  < len(check_list[i]):
-            if check_list[i][j + 1] == 0:
-                return True
-            else:
-                return False
-        else:
-            True
+def check(check_list, i, j):
+    if j + 1  < len(check_list[i]):
+        if check_list[i][j + 1] == 0:            
+            return True
 
+    if j - 1  > -1:
+        if check_list[i][j - 1] == 0:
+            return True
 
-    elif arrow == 'left':
-        if j - 1  > -1:
-            if check_list[i][j - 1] == 0:
-                return True
-            else:
-                return False
-        else:
-            True
+    if i + 1  < len(check_list):
+        if check_list[i + 1][j] == 0:
+            return True
 
-    elif arrow == 'up':
-        if i + 1  < len(check_list):
-            if check_list[i + 1][j] == 0:
-                return True
-            else:
-                return False
-        else:
-            True
+    if i - 1  > -1:
+        if check_list[i - 1][j] == 0:
+            return True
 
-    elif arrow == 'down':
-        if i - 1  > -1:
-            if check_list[i - 1][j] == 0:
-                return True
-            else:
-                return False
-        else:
-            True
+    return False
 
-while True:
+visited = []
+while True:    
     tomato_grow = []
     date_count += 1
     for i in range(col):
         for j in range(row):
-            if tomato_store[i][j] == 1 and (check(tomato_store, i,j,'right') or check(tomato_store, i,j,'left') or check(tomato_store, i,j,'up') or check(tomato_store, i,j,'down')):
+            if tomato_store[i][j] == 1 and check(tomato_store, i,j) and [i,j] not in visited:
                 tomato_grow.append([i,j])
-
+                visited.append([i,j])
     for i in range(len(tomato_grow)):
         tomato_grow_row = tomato_grow[i][1]
         tomato_grow_col = tomato_grow[i][0]
