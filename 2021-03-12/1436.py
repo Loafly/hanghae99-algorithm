@@ -2,7 +2,7 @@ length = int(input())
 
 n = length
 
-cur_n =1
+cur_n = 1
 number = 667
 
 while n != cur_n:
