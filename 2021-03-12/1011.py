@@ -17,6 +17,6 @@ for i in range(length):
             date_conut = 2 * square_root - 1
         elif distance > square_root ** 2  and distance <= square_root ** 2 + square_root:
             date_conut = 2 * square_root
-        elif distance > square_root **2 + square_root:
+        elif distance > square_root ** 2 + square_root:
             date_conut = 2 * square_root + 1    
         print(date_conut)

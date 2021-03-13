@@ -13,7 +13,7 @@ def triangle_length(n, memo):
     if n in memo:
         return memo[n]
     else:
-        memo[n] = triangle_length(n -1,memo) + triangle_length(n - 5,memo)        
+        memo[n] = triangle_length(n -1,memo) + triangle_length(n - 5,memo)
         return memo[n]
 
 for i in range(length):

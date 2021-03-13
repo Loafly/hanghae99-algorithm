@@ -10,13 +10,13 @@ def w(a, b, c, memo):
     if a <= 0 or b <= 0 or c <= 0:
         return 1
 
-    elif a > 20 or b > 20 or c > 20:
-        result = w(20, 20, 20, memo)
-        return result
-
     if str_abc in memo:
         return memo[str_abc]
 
+    elif a > 20 or b > 20 or c > 20:
+        result = w(20, 20, 20, memo)
+        return result
+        
     else:
         if a < b and b < c:
             result = w(a, b, c-1, memo) + w(a, b-1, c-1, memo) - w(a, b-1, c, memo)
