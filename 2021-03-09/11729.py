@@ -1,4 +1,3 @@
-#변수를 입력받는 방법
 n = int(input())
 
 results = []
@@ -9,7 +8,6 @@ def hanoi(N, src, dest, transfer):
     hanoi(N-1, src, transfer, dest)
     results.append([src, dest])
     hanoi(N-1, transfer, dest, src)
-
 
 hanoi(n,1,3,2)
 

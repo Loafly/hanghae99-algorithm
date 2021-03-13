@@ -19,4 +19,3 @@ def triangle_length(n, memo):
 for i in range(length):
     step = int(sys.stdin.readline())
     print(triangle_length(step,memo))
-    

@@ -5,7 +5,7 @@ memo = {
 }
 
 def w(a, b, c, memo):
-    str_abc = str(a) + str(b) + str(c)
+    str_abc = str(a) + '0' + str(b) + '0' + str(c)
 
     if a <= 0 or b <= 0 or c <= 0:
         return 1
@@ -32,4 +32,4 @@ while True:
     if a == -1 and b == -1 and c == -1:
         break
     result = w(a,b,c, memo)
-    print("w(%d, %d, %d) = %d"%(a, b, c, result))
+    print("w(%d, %d, %d) = %d" % (a, b, c, result))

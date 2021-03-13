@@ -172,21 +172,33 @@
 # print(len(move))
 # print('\n'.join([''.join(str(i) for i in row)for row in move]))
 
-prices = list(map(int, input().split()))
-op = []
-# 1 2 3 2 3
-# 4 3 1 1 0
-# 다 비교해야함
-while True:
-    counter = -1
+# prices = list(map(int, input().split()))
+# op = []
+# # 1 2 3 2 3
+# # 4 3 1 1 0
+# # 다 비교해야함
+# while True:
+#     counter = -1
+#
+#     if not prices:
+#         break
+#
+#     for i in prices:
+#         if prices[0] <= i:
+#             counter += 1
+#     op.append(counter)
+#     prices.pop(0)
+#
+# print(op)
 
-    if not prices:
-        break
+memo = ['a']
 
-    for i in prices:
-        if prices[0] <= i:
-            counter += 1
-    op.append(counter)
-    prices.pop(0)
+memo_ = {
+    'a' : 100
+}
 
-print(op)
+if 'a' in memo:
+    print('a')
+
+if 'a' in memo_:
+    print(memo_['a'])

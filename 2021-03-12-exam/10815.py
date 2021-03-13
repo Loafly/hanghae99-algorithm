@@ -8,7 +8,6 @@ check_card = list(map(int,input().split()))
 result_list = []
 
 def is_existing_target_number_binary(target, array):
-    # 구현해보세요!
     current_min = 0
     current_max = len(array) - 1
     current_guess = (current_min + current_max) // 2
