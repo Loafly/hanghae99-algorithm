@@ -9,26 +9,31 @@ square_store = []
 count_zero = 0
 count_one = 0
 
+def is_zero_one(square_store, square_arrow_list):
+    is_zero = False
+    is_one = False
+    global count_one
+    global count_zero
+    for row in square_arrow_list:
+        if not is_one or not is_zero:
+            if 1 in row:
+                is_one = True
+            if 0 in row:
+                is_zero = True
+        else:
+            break
+
+    if is_one and is_zero:
+        square_store.append(square_arrow_list)
+    elif not is_zero:
+        count_one += 1
+    else:        
+        count_zero += 1
+
 for i in range(square_length):
     square_list.append(list(map(int, sys.stdin.readline().split())))
 
-square_store.append(square_list)
-# print(square_store)
-
-is_zero = False
-is_one = False
-for row in square_list:
-    if 1 in row:
-        is_one = True
-    if 0 in row:
-        is_zero = True
-
-if not is_zero:
-    count_one += 1
-    square_store.clear()
-elif not is_one:
-    count_zero += 1
-    square_store.clear()
+is_zero_one(square_store, square_list)
 
 while square_store:    
     square = square_store.pop(0)
@@ -60,73 +65,78 @@ while square_store:
         square_left_down_list.append(temp_left_down_list)
         square_right_down_list.append(temp_right_down_list)
 
+    is_zero_one(square_store, square_left_up_list)
+    is_zero_one(square_store, square_rigth_up_list)
+    is_zero_one(square_store, square_left_down_list)
+    is_zero_one(square_store, square_right_down_list)
+
     #왼쪽 위
-    is_zero = False
-    is_one = False
-    for row in square_left_up_list:
-        if 1 in row:
-            is_one = True
-        if 0 in row:
-            is_zero = True
+    # is_zero = False
+    # is_one = False
+    # for row in square_left_up_list:
+    #     if 1 in row:
+    #         is_one = True
+    #     if 0 in row:
+    #         is_zero = True
 
-    if is_one and is_zero:
-        # print('square_left_up_list = ', square_left_up_list)
-        square_store.append(square_left_up_list)
-    elif not is_zero:
-        count_one += 1
-    else:
-        count_zero += 1
+    # if is_one and is_zero:
+    #     # print('square_left_up_list = ', square_left_up_list)
+    #     square_store.append(square_left_up_list)
+    # elif not is_zero:
+    #     count_one += 1
+    # else:
+    #     count_zero += 1
 
-    #오른쪽 위
-    is_zero = False
-    is_one = False
-    for row in square_rigth_up_list:
-        if 1 in row:
-            is_one = True
-        if 0 in row:
-            is_zero = True
+    # #오른쪽 위
+    # is_zero = False
+    # is_one = False
+    # for row in square_rigth_up_list:
+    #     if 1 in row:
+    #         is_one = True
+    #     if 0 in row:
+    #         is_zero = True
 
-    if is_one and is_zero:
-        # print('square_rigth_up_list = ', square_rigth_up_list)
-        square_store.append(square_rigth_up_list)
-    elif not is_zero:
-        count_one += 1
-    else:
-        count_zero += 1
+    # if is_one and is_zero:
+    #     # print('square_rigth_up_list = ', square_rigth_up_list)
+    #     square_store.append(square_rigth_up_list)
+    # elif not is_zero:
+    #     count_one += 1
+    # else:
+    #     count_zero += 1
 
-    #왼쪽 아래
-    is_zero = False
-    is_one = False
-    for row in square_left_down_list:
-        if 1 in row:
-            is_one = True
-        if 0 in row:
-            is_zero = True
+    # #왼쪽 아래
+    # is_zero = False
+    # is_one = False
+    # for row in square_left_down_list:
+    #     if 1 in row:
+    #         is_one = True
+    #     if 0 in row:
+    #         is_zero = True
 
-    if is_one and is_zero:
-        # print('square_left_down_list = ', square_left_down_list)
-        square_store.append(square_left_down_list)
-    elif not is_zero:
-        count_one += 1
-    else:
-        count_zero += 1
+    # if is_one and is_zero:
+    #     # print('square_left_down_list = ', square_left_down_list)
+    #     square_store.append(square_left_down_list)
+    # elif not is_zero:
+    #     count_one += 1
+    # else:
+    #     count_zero += 1
 
-    #오른쪽 아래
-    is_zero = False
-    is_one = False
-    for row in square_right_down_list:
-        if 1 in row:
-            is_one = True
-        if 0 in row:
-            is_zero = True
+    # #오른쪽 아래
+    # is_zero = False
+    # is_one = False
+    # for row in square_right_down_list:
+    #     if 1 in row:
+    #         is_one = True
+    #     if 0 in row:
+    #         is_zero = True
 
-    if is_one and is_zero:
-        # print('square_right_down_list = ', square_right_down_list)
-        square_store.append(square_right_down_list)
-    elif not is_zero:
-        count_one += 1
-    else:
-        count_zero += 1
+    # if is_one and is_zero:
+    #     # print('square_right_down_list = ', square_right_down_list)
+    #     square_store.append(square_right_down_list)
+    # elif not is_zero:
+    #     count_one += 1
+    # else:
+    #     count_zero += 1
 
 print(count_zero)
 print(count_one)

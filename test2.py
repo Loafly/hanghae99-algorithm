@@ -190,15 +190,105 @@
 #     prices.pop(0)
 #
 # print(op)
+#
+# memo = ['a']
+#
+# memo_ = {
+#     'a' : 100
+# }
+#
+# if 'a' in memo:
+#     print('a')
+#
+# if 'a' in memo_:
+#     print(memo_['a'])
 
-memo = ['a']
 
-memo_ = {
-    'a' : 100
-}
+# N, M, V
+# N: 정점의 개수
+# M: 간선의 개수
+# V: 탐색 시작하는 번호
 
-if 'a' in memo:
-    print('a')
+# import sys
+# from collections import deque
+# N, M, V = map(int, sys.stdin.readline().split())
+# #print(N, M, V)
+# dic = {}
+# for i in range(N):
+#     dic[i+1] = []
+# #print(dic)
+# for i in range(M):
+#     a, b = map(int, sys.stdin.readline().split())
+#     dic[a].append(b)
+#     dic[b].append(a)
+# #print(dic)
+#
+# # DFS -> Stack
+# def dfs(graph, start):
+#     stack = [start]
+#     visited = []
+#     not_visited = []
+#     is_found = False
+#     while stack:
+#         cur_node = stack.pop()
+#         visited.append(cur_node)
+#         print(graph)
+#         print(f'graph[cur_node] = {graph[cur_node]}')
+#         if len(graph[cur_node]) > 1:
+#             for value in graph[cur_node]:
+#                 if value not in visited :
+#                     not_visited.append(value)
+#                     is_found = True
+#                     print('test1')
+#             if is_found == True :
+#                 stack.append(min(not_visited))
+#                 not_visited = []
+#                 is_found = False
+#                 print('test2')
+#             else:
+#                 continue
+#         else:
+#             stack.append(graph[cur_node])
+#             print('test3')
+#     return visited
+# print(dfs(dic, V))
 
-if 'a' in memo_:
-    print(memo_['a'])
+import sys
+from collections import deque
+N, M, V = map(int, sys.stdin.readline().split())
+#print(N, M, V)
+dic = {}
+for i in range(N):
+    dic[i+1] = []
+#print(dic)
+for i in range(M):
+    a, b = map(int, sys.stdin.readline().split())
+    dic[a].append(b)
+    dic[b].append(a)
+#print(dic)
+
+# DFS -> Stack
+def dfs(graph, start):
+    stack = [start]
+    visited = []
+    not_visited = []
+    is_found = False
+    while stack:
+        cur_node = stack.pop()
+        visited.append(cur_node)
+        # if len(graph[cur_node]) > 1:
+        for value in graph[cur_node]:
+            if value not in visited :
+                not_visited.append(value)
+                is_found = True
+        if is_found == True :
+            stack.append(min(not_visited))
+            not_visited = []
+            is_found = False
+        else:
+            continue
+        # else:
+        #     stack.append(graph[cur_node])
+        #     print('test3')
+    return visited
+print(dfs(dic, V))

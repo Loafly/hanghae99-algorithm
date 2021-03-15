@@ -49,4 +49,3 @@ else:
     print(max_frequency_list[1])
 #최소, 최대 범위
 print(value_list[-1] - value_list[0])
-

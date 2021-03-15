@@ -9,4 +9,4 @@ def factorial(num):
         result *= i
     return result
 
-print(int(factorial(n) / (factorial(n - r) * factorial(r))))
+print(factorial(n) // (factorial(n - r) * factorial(r)))
