@@ -10,5 +10,3 @@ while time_list:
     min_time += sum(time_list)
 
 print(min_time)
-
-
