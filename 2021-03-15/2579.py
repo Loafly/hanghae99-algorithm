@@ -12,11 +12,12 @@ for i in range(length):
 for i in range(3):
     stair_score.append(0)
 cur_index = 0
-while True:    
+while True:
     sum_score += stair_score[cur_index]
-    
+
     if cur_index >= length - 1:
-        break
+        break   
+    
     if stair_score[cur_index + 1] > stair_score[cur_index + 2]:
         cur_index += 1
     elif stair_score[cur_index + 1] < stair_score[cur_index + 2]:
