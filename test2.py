@@ -253,42 +253,87 @@
 #     return visited
 # print(dfs(dic, V))
 
-import sys
-from collections import deque
-N, M, V = map(int, sys.stdin.readline().split())
-#print(N, M, V)
-dic = {}
-for i in range(N):
-    dic[i+1] = []
-#print(dic)
-for i in range(M):
-    a, b = map(int, sys.stdin.readline().split())
-    dic[a].append(b)
-    dic[b].append(a)
-#print(dic)
+# import sys
+# from collections import deque
+# N, M, V = map(int, sys.stdin.readline().split())
+# #print(N, M, V)
+# dic = {}
+# for i in range(N):
+#     dic[i+1] = []
+# #print(dic)
+# for i in range(M):
+#     a, b = map(int, sys.stdin.readline().split())
+#     dic[a].append(b)
+#     dic[b].append(a)
+# #print(dic)
+#
+# # DFS -> Stack
+# def dfs(graph, start):
+#     stack = [start]
+#     visited = []
+#     not_visited = []
+#     is_found = False
+#     while stack:
+#         cur_node = stack.pop()
+#         visited.append(cur_node)
+#         # if len(graph[cur_node]) > 1:
+#         for value in graph[cur_node]:
+#             if value not in visited :
+#                 not_visited.append(value)
+#                 is_found = True
+#         if is_found == True :
+#             stack.append(min(not_visited))
+#             not_visited = []
+#             is_found = False
+#         else:
+#             continue
+#         # else:
+#         #     stack.append(graph[cur_node])
+#         #     print('test3')
+#     return visited
+# print(dfs(dic, V))
 
-# DFS -> Stack
-def dfs(graph, start):
-    stack = [start]
-    visited = []
-    not_visited = []
-    is_found = False
-    while stack:
-        cur_node = stack.pop()
-        visited.append(cur_node)
-        # if len(graph[cur_node]) > 1:
-        for value in graph[cur_node]:
-            if value not in visited :
-                not_visited.append(value)
-                is_found = True
-        if is_found == True :
-            stack.append(min(not_visited))
-            not_visited = []
-            is_found = False
-        else:
-            continue
-        # else:
-        #     stack.append(graph[cur_node])
-        #     print('test3')
-    return visited
-print(dfs(dic, V))
+from collections import deque
+
+deque = deque()
+
+deque.append('a')
+print(deque)                #deque(['a'])
+
+deque.appendleft('b')
+print(deque)                #deque(['b', 'a'])
+
+temp_deque = deque.copy()
+print(temp_deque)           #deque(['b', 'a'])
+
+deque.clear()
+print(deque)                #deque([])
+
+deque.extend(temp_deque)
+print(deque)                #deque(['b', 'a'])
+
+deque.append('c')
+print(deque)                #deque(['b', 'a', 'c'])
+
+deque.extendleft(temp_deque)
+print(deque)                #deque(['a', 'b', 'b', 'a', 'c'])
+
+print(deque.index('b'))     #1
+
+deque.insert(3,'d')
+print(deque)                #deque(['a', 'b', 'b', 'd', 'a', 'c'])
+
+print(deque.pop())          #c
+print(deque)                #deque(['a', 'b', 'b', 'd', 'a'])
+
+print(deque.popleft())      #a
+print(deque)                #deque(['b', 'b', 'd', 'a'])
+
+deque.remove('d')           #deque(['b', 'b', 'a'])
+print(deque)
+
+deque.reverse()             #deque(['a', 'b', 'b'])
+print(deque)
+
+deque.rotate(1)             #deque(['b', 'a', 'b'])
+print(deque)
