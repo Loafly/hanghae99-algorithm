@@ -293,47 +293,56 @@
 #     return visited
 # print(dfs(dic, V))
 
-from collections import deque
+# from collections import deque
 
-deque = deque()
+# deque = deque()
 
-deque.append('a')
-print(deque)                #deque(['a'])
+# deque.append('a')
+# print(deque)                #deque(['a'])
 
-deque.appendleft('b')
-print(deque)                #deque(['b', 'a'])
+# deque.appendleft('b')
+# print(deque)                #deque(['b', 'a'])
 
-temp_deque = deque.copy()
-print(temp_deque)           #deque(['b', 'a'])
+# temp_deque = deque.copy()
+# print(temp_deque)           #deque(['b', 'a'])
 
-deque.clear()
-print(deque)                #deque([])
+# deque.clear()
+# print(deque)                #deque([])
 
-deque.extend(temp_deque)
-print(deque)                #deque(['b', 'a'])
+# deque.extend(temp_deque)
+# print(deque)                #deque(['b', 'a'])
 
-deque.append('c')
-print(deque)                #deque(['b', 'a', 'c'])
+# deque.append('c')
+# print(deque)                #deque(['b', 'a', 'c'])
 
-deque.extendleft(temp_deque)
-print(deque)                #deque(['a', 'b', 'b', 'a', 'c'])
+# deque.extendleft(temp_deque)
+# print(deque)                #deque(['a', 'b', 'b', 'a', 'c'])
 
-print(deque.index('b'))     #1
+# print(deque.index('b'))     #1
 
-deque.insert(3,'d')
-print(deque)                #deque(['a', 'b', 'b', 'd', 'a', 'c'])
+# deque.insert(3,'d')
+# print(deque)                #deque(['a', 'b', 'b', 'd', 'a', 'c'])
 
-print(deque.pop())          #c
-print(deque)                #deque(['a', 'b', 'b', 'd', 'a'])
+# print(deque.pop())          #c
+# print(deque)                #deque(['a', 'b', 'b', 'd', 'a'])
 
-print(deque.popleft())      #a
-print(deque)                #deque(['b', 'b', 'd', 'a'])
+# print(deque.popleft())      #a
+# print(deque)                #deque(['b', 'b', 'd', 'a'])
 
-deque.remove('d')           #deque(['b', 'b', 'a'])
-print(deque)
+# deque.remove('d')           #deque(['b', 'b', 'a'])
+# print(deque)
 
-deque.reverse()             #deque(['a', 'b', 'b'])
-print(deque)
+# deque.reverse()             #deque(['a', 'b', 'b'])
+# print(deque)
 
-deque.rotate(1)             #deque(['b', 'a', 'b'])
-print(deque)
+# deque.rotate(1)             #deque(['b', 'a', 'b'])
+# print(deque)
+
+
+dic = {
+    'a' : 0,
+    'b' : 1
+}
+
+print(dic)
+print(dic[dic.keys[0]])

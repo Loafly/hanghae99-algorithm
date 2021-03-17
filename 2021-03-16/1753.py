@@ -1,32 +1,48 @@
-# BOJ 1753 - 최단경로
+import heapq
 import sys
-from heapq import heappush, heappop
-r = sys.stdin.readline
-INF = 1e9
 
-def dijkstra(v, k, g):
-    dist = [INF] * v
-    dist[k - 1] = 0
-    q = []
-    heappush(q, [0, k-1])
+point_count, line_count = sys.stdin.readline().split()
 
-    while q:
-        cost, pos = heappop(q)
+point_count = int(point_count)
+line_count = int(line_count)
 
-        for p, c in g[pos]:
-            c += cost
-            if c < dist[p]:
-                dist[p] = c
-                heappush(q, [c, p])
+start_point = int(sys.stdin.readline())
 
-    return dist
+line_dic = {}
+for i in range(line_count):
+    u, v, w = sys.stdin.readline().split()
+    if int(u) in line_dic:
+        line_dic[int(u)].append((int(v),int(w)))
+    else:
+        line_dic[int(u)] = [(int(v),int(w))]
 
-V, E = map(int, r().split())
-K = int(r())
-graph = [[] for _ in range(V)]
-for _ in range(E):
-    u, v, w = map(int, r().split())
-    graph[u-1].append([v-1, w])
+    print(line_dic)
 
-for d in dijkstra(V, K, graph):
-    print(d if d != INF else "INF")
+
+def dijkstra(graph, start):
+    
+    distances = {node: float('inf') for node in range(line_count)}
+    distances[start] = 0
+    queue = []
+    heapq.heappush(queue, [distances[start], start])
+    
+    while queue:
+        current_distance, current_node = heapq.heappop(queue)
+        
+        if distances[current_node] < current_distance:
+            continue
+        print(f'distances = {distances}')
+        for line in graph[current_node]:
+            print(line)
+            adjacent = line[0]            
+            weight = line[1]
+            distance = current_distance + weight
+            
+            if distance < distances[adjacent]:
+                distances[adjacent] = distance
+                heapq.heappush(queue, [distance, adjacent])
+                
+    return distances
+
+
+print(dijkstra(line_dic, 1))
