@@ -10,7 +10,7 @@ def is_available(candidate, current_col):
     return True
 
 
-def DFS(N, current_row, current_candidate, ):
+def DFS(N, current_row, current_candidate):
     if current_row == N:
         global count
         count += 1

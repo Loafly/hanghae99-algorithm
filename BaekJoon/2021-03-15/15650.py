@@ -6,5 +6,5 @@ N_list = []
 for i in range(N):
     N_list.append(str(i + 1))
 
-for i in list(map(' '.join, itertools.permutations(N_list, M))):
+for i in list(map(' '.join, itertools.combinations(N_list, M))):
     print(i)
