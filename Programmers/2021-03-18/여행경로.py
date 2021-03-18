@@ -9,7 +9,7 @@ def solution(tickets):
 
     visited_dic[f'0, 0'] = False
 
-    print(visited_dic)
+    # print(visited_dic)
 
     sorted_tickets = sorted(tickets,key=lambda tickets: tickets[1])
     
@@ -21,15 +21,12 @@ def solution(tickets):
 
 def DFS(tickets, result, visited_dic, src, dest):    
     if visited_dic[f'{src}, {dest}']:
-        visited_dic[f'{src}, {dest}'] = False
         return
     
     else:
         visited_dic[f'{src}, {dest}'] = True
 
-
-
-
+        print(visited_dic)
 
 solution([["ICN", "SFO"], ["ICN", "ATL"], ["SFO", "ATL"], ["ATL", "ICN"], ["ATL","SFO"]])
 # solution([["ICN", "JFK"], ["HND", "IAD"], ["JFK", "HND"]])
