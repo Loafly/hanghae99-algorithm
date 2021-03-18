@@ -1,17 +1,13 @@
 import sys
 length = int(sys.stdin.readline())
-sequence = list(map(int, sys.stdin.readline().split()))
+sequence_list = list(map(int, sys.stdin.readline().split()))
 
-min_value = sequence[0]
-value_raise = {
-    
-}
+value_raise = [0] * length
 
-def fibo_dynamic_programming(n, value_raise):
-    # 구현해보세요!
-    if n in value_raise:
-        return value_raise[n]
+for i in range(length):
+    for j in range(i):
+        if (sequence_list[i] > sequence_list[j] and value_raise[i] < value_raise[j]):
+             value_raise[i] = value_raise[j]
+    value_raise[i] += 1
 
-    nth_fibo = fibo_dynamic_programming(n-1, value_raise) + fibo_dynamic_programming(n-2, value_raise)
-    value_raise[n] = nth_fibo
-    return nth_fibo
+print(max(value_raise))
