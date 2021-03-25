@@ -14,7 +14,7 @@ for i in range(length):
     #nomal_cupon이 0인경우
     elif nomal_cupon == 0:
         print(season_cupon // 12)
-    #season_cupon이 0인경우
+    #season_cupon이 5이하인 경우
     elif season_cupon < 5:
         print(coffee_count)
     #둘다 수가 있는 경우
